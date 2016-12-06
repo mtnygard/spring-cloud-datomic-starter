@@ -1,5 +1,6 @@
 package com.example;
 
+import datomic.Peer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -9,8 +10,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication
 public class DemoApplication {
-
-	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
-	}
+    public static void main(String[] args) throws InterruptedException {
+        SpringApplication.run(DemoApplication.class, args);
+        Thread.sleep(100);
+        Peer.shutdown(true);
+    }
 }

@@ -1,5 +1,6 @@
 package com.datomic;
 
+import java.util.Comparator;
 import java.util.Objects;
 import java.util.Set;
 import java.util.concurrent.ConcurrentSkipListSet;
@@ -10,7 +11,7 @@ import java.util.concurrent.ConcurrentSkipListSet;
 public class Connections {
 
     private final Set<Connection> connections =
-            new ConcurrentSkipListSet<>((o1, o2) -> o1.getUri().compareTo(o2.getUri()));
+            new ConcurrentSkipListSet<>(Comparator.comparing(Connection::getUri));
 
     public Connections(Connection[] connections) {
         if (null != connections) {

@@ -28,4 +28,5 @@ public class DatomicAutoConfiguration {
 
     private Connection from(ConnectionsProperties.ConnectionProperties p) {
         return new Connection(p.deriveUri());
-    }}
+    }
+}
